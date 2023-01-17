@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "prettier --check vendor/ driver/ && eslint vendor/ driver/",
+    "lint": "prettier --check vendor/ driver/ events hub && eslint vendor/ driver/ events hub",
     "test": "jest",
     "start": "node hub.js"
   },

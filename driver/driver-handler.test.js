@@ -22,7 +22,7 @@ describe('Driver tests', () => {
     //assert
     expect(emitMock).toHaveBeenCalledWith(EVENT_NAMES.delivered, '12345');
   });
-  
+
   test('Driver Delivery', () => {
     // arrange
     const emitMock = jest.spyOn(events, 'emit');

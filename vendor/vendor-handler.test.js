@@ -12,9 +12,12 @@ describe('Vendor Tests', () => {
     sendPickUp();
 
     //assert
-    expect(emitMock).toHaveBeenCalledWith(EVENT_NAMES.pickup, expect.objectContaining({}));
+    expect(emitMock).toHaveBeenCalledWith(
+      EVENT_NAMES.pickup,
+      expect.objectContaining({})
+    );
   });
-  
+
   test('Vendor Delivery Response', () => {
     // arrange
     const consoleMock = jest.spyOn(console, 'log');
@@ -23,6 +26,9 @@ describe('Vendor Tests', () => {
     deliveryResponse('12345');
 
     // assert
-    expect(consoleMock).toHaveBeenCalledWith('Vendor thanks you for the delivery!', '12345');
+    expect(consoleMock).toHaveBeenCalledWith(
+      'Vendor thanks you for the delivery!',
+      '12345'
+    );
   });
 });
