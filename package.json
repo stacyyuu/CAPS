@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "prettier --check src/ && eslint src/",
+    "lint": "prettier && eslint",
     "test": "jest",
     "start": "node hub.js"
   },
