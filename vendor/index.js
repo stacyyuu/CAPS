@@ -1,5 +1,5 @@
-const { events, chance, EVENT_NAMES } = require('../events');
-const { deliveryResponse, sendPickUp } = require('./handler');
+const { chance, EVENT_NAMES } = require('../utilities');
+const { deliveryResponse, sendPickUp, events } = require('./handler');
 
 function startVendor() {
   // events.on(emitter, eventName)
@@ -16,4 +16,4 @@ function startVendor() {
   ready();
 }
 
-module.exports = { startVendor };
+startVendor();

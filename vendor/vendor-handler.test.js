@@ -1,5 +1,5 @@
-const { events, EVENT_NAMES } = require('../events');
-const { sendPickUp, deliveryResponse } = require('./handler');
+const { EVENT_NAMES } = require('../utilities');
+const { sendPickUp, deliveryResponse, events } = require('./handler');
 
 jest.useFakeTimers();
 
@@ -16,7 +16,9 @@ describe('Vendor Tests', () => {
       EVENT_NAMES.pickup,
       expect.objectContaining({
         store: expect.stringContaining(''),
-        orderId: expect.stringMatching(/[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}/i)
+        orderId: expect.stringMatching(
+          /[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}/i
+        ),
       })
     );
   });
