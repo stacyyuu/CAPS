@@ -21,6 +21,8 @@
 - N/A
 
 ### Notes
+<img src = "CAPS.png">
+
 - Server sets up connection
 - Events happen with our methods 
 
