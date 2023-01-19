@@ -15,5 +15,5 @@ function startVendor() {
 
   ready();
 }
- 
+
 startVendor();
