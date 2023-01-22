@@ -10,7 +10,7 @@ function startVendor() {
     sendPickUp();
 
     // set time it takes to send a pick up for driver
-    setTimeout(ready, chance.integer({ min: 2000, max: 3000 }));
+    setTimeout(ready, chance.integer({ min: 5000, max: 6000 }));
   }
 
   ready();
