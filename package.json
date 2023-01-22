@@ -7,9 +7,9 @@
     "lint": "prettier --check vendor/ driver/ && eslint vendor/ driver/",
     "test": "jest",
     "start": "concurrently npm:hub npm:driver npm:vendor",
-    "hub": "node hub.js",
-    "driver": "node driver/index.js",
-    "vendor": "node vendor/index.js"
+    "hub": "node server/hub.js",
+    "driver": "node clients/driver/index.js",
+    "vendor": "node clients/vendor/index.js"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
-const { EVENT_NAMES } = require('../utilities');
-const { delivered, handlePickUp, events } = require('./handler');
+const { EVENT_NAMES } = require('../server/utilities');
+const { delivered, handlePickUp, events } = require('../clients/driver/handler');
 
 jest.useFakeTimers();
 
@@ -31,4 +31,6 @@ describe('Driver tests', () => {
     // assert
     expect(emitMock).toHaveBeenCalledWith(EVENT_NAMES.delivered, '12345');
   });
+
+  events.close();
 });
