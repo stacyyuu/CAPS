@@ -12,13 +12,19 @@ function startEventServer() {
     console.log('There is a new connection.', socket.id);
 
     // driver queue
-    socket.on(EVENT_NAMES.driver_ready, (socket) => {
-      driverQueue.enqueue(socket);
+    socket.on(EVENT_NAMES.driver_ready, (driver) => {
+      console.log(`Driver ${driver.name} is waiting for a pick up.`);
+      driverQueue.enqueue(driver.name);
+      console.log(driverQueue);
     });
     // BUSY WORK! Whenever the hub gets a pickup or delivered event, send it to everyone
     socket.on(EVENT_NAMES.pickup, (pickup) => {
       console.log('HUB pickup', socket.id, pickup.orderId);
       vendorQueue.enqueue(pickup);
+      if (driverQueue) {
+        driveQueue.dequeue();
+      } else {
+      }
       io.emit(EVENT_NAMES.pickup, pickup);
     });
 
