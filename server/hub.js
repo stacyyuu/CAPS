@@ -21,11 +21,15 @@ function startEventServer() {
     socket.on(EVENT_NAMES.pickup, (pickup) => {
       console.log('HUB pickup', socket.id, pickup.orderId);
       vendorQueue.enqueue(pickup);
-      if (driverQueue) {
-        driveQueue.dequeue();
+      if (!driverQueue.isEmpty()) {
+        let name = driverQueue.dequeue();
+        io.emit(EVENT_NAMES.pickup, pickup);
+        console.log(`Driver ${name} has reached a pick up event for order:`, pickup.orderId);
       } else {
+        io.emit(EVENT_NAMES.pickup, () => {
+          console.log('No drivers currently available for pick up.');
+        })
       }
-      io.emit(EVENT_NAMES.pickup, pickup);
     });
 
     socket.on(EVENT_NAMES.delivered, (delivered) => {

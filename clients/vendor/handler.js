@@ -17,8 +17,8 @@ function sendPickUp() {
   socket.emit(EVENT_NAMES.pickup, event);
 }
 
-function deliveryResponse(orderId) {
-  console.log('Vendor thanks you for the delivery!', orderId);
+function deliveryResponse(event) {
+  console.log(`Vendor ${event.store } thanks you for the delivery!`, event.orderId);
 }
 
 module.exports = {
