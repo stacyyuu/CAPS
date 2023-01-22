@@ -1,5 +1,5 @@
-const { EVENT_NAMES } = require('../utilities');
-const { sendPickUp, deliveryResponse, events } = require('./handler');
+const { EVENT_NAMES } = require('../server/utilities');
+const { sendPickUp, deliveryResponse, events } = require('../clients/vendor/handler');
 
 jest.useFakeTimers();
 
@@ -20,6 +20,7 @@ describe('Vendor Tests', () => {
           /[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}/i
         ),
       })
+
     );
   });
 
@@ -36,4 +37,6 @@ describe('Vendor Tests', () => {
       '12345'
     );
   });
+  
+  events.close();
 });
